@@ -50,9 +50,14 @@
 
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const GalleryPage = () => {
   const { id } = useParams(); // Get the card ID from the URL
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top of the page
+  }, []);
 
   // Define gallery images for each card
   const galleryImages = {
@@ -393,8 +398,8 @@ const GalleryPage = () => {
   const images = galleryImages[id] || galleryImages.default;
 
   return (
-    <div className="p-8">
-      <h2 className="text-3xl font-bold text-center mb-6">Gallery</h2>
+    <div className="pt-8">
+      <h2 className="text-3xl font-bold text-center mb-6 pt-10">Gallery</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {images.map((image, index) => (
           <div
