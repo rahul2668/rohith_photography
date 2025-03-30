@@ -239,267 +239,267 @@
 // export default CardList;
 
 
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import ShimmerLoader from "../components/ShimmerLoader"; // Assuming ShimmerLoader is a separate component
-import CardWithLoader from "./CardWithLoader";
+  import React, { useState } from "react";
+  import { useNavigate } from "react-router-dom";
+  // import ShimmerLoader from "../components/ShimmerLoader"; // Assuming ShimmerLoader is a separate component
+  import CardWithLoader from "./CardWithLoader";
 
-const CardList = () => {
-  const navigate = useNavigate();
+  const CardList = () => {
+    const navigate = useNavigate();
 
-  // const cards = [
-  //   {
-  //     id: 1,
-  //     images: [
-  //       `${process.env.PUBLIC_URL}/media/pre_wedding/pw1.jpg`,
-  //       `${process.env.PUBLIC_URL}/media/pre_wedding/pw2.jpg`,
-  //       `${process.env.PUBLIC_URL}/media/pre_wedding/pw3.jpg`
-  //     ],
-  //     title: "Pre-Wedding",
-  //     category: "Wedding",
-  //     description: "Celebrate the journey of love before the big day with enchanting pre-wedding moments."
-  //   },
-  //   {
-  //     id: 2,
-  //     images: [
-  //       `${process.env.PUBLIC_URL}/media/wedding/m22.jpg`,
-  //       `${process.env.PUBLIC_URL}/media/wedding/m23.jpg`,
-  //       `${process.env.PUBLIC_URL}/media/wedding/m24.jpg`
-  //     ],
-  //     title: "Wedding",
-  //     category: "Wedding",
-  //     description: "Capture the essence of love and commitment on your special day."
-  //   },
-  //   {
-  //     id: 3,
-  //     images: [
-  //       `${process.env.PUBLIC_URL}/media/reception/r4.jpg`,
-  //       `${process.env.PUBLIC_URL}/media/reception/r5.jpg`,
-  //       `${process.env.PUBLIC_URL}/media/reception/r6.jpg`
-  //     ],
-  //     title: "Reception",
-  //     category: "Wedding",
-  //     description: "A glamorous evening celebrating the union with friends and family."
-  //   },
-  //   // Add other cards here...
-  // ];
+    // const cards = [
+    //   {
+    //     id: 1,
+    //     images: [
+    //       `${process.env.PUBLIC_URL}/media/pre_wedding/pw1.jpg`,
+    //       `${process.env.PUBLIC_URL}/media/pre_wedding/pw2.jpg`,
+    //       `${process.env.PUBLIC_URL}/media/pre_wedding/pw3.jpg`
+    //     ],
+    //     title: "Pre-Wedding",
+    //     category: "Wedding",
+    //     description: "Celebrate the journey of love before the big day with enchanting pre-wedding moments."
+    //   },
+    //   {
+    //     id: 2,
+    //     images: [
+    //       `${process.env.PUBLIC_URL}/media/wedding/m22.jpg`,
+    //       `${process.env.PUBLIC_URL}/media/wedding/m23.jpg`,
+    //       `${process.env.PUBLIC_URL}/media/wedding/m24.jpg`
+    //     ],
+    //     title: "Wedding",
+    //     category: "Wedding",
+    //     description: "Capture the essence of love and commitment on your special day."
+    //   },
+    //   {
+    //     id: 3,
+    //     images: [
+    //       `${process.env.PUBLIC_URL}/media/reception/r4.jpg`,
+    //       `${process.env.PUBLIC_URL}/media/reception/r5.jpg`,
+    //       `${process.env.PUBLIC_URL}/media/reception/r6.jpg`
+    //     ],
+    //     title: "Reception",
+    //     category: "Wedding",
+    //     description: "A glamorous evening celebrating the union with friends and family."
+    //   },
+    //   // Add other cards here...
+    // ];
 
-  const cards = [
-    {
-      id: 1,
-      images: [
-        `${process.env.PUBLIC_URL}/media/pre_wedding/pw1.jpg`,
-        `${process.env.PUBLIC_URL}/media/pre_wedding/pw2.jpg`,
-        `${process.env.PUBLIC_URL}/media/pre_wedding/pw3.jpg`
-      ],
-      title: "Pre-Wedding",
-      category: "Wedding",
-      description: "Celebrate the journey of love before the big day with enchanting pre-wedding moments."
-    },
-    {
-      id: 2,
-      images: [
-        `${process.env.PUBLIC_URL}/media/wedding/m22.jpg`,
-        `${process.env.PUBLIC_URL}/media/wedding/m23.jpg`,
-        `${process.env.PUBLIC_URL}/media/wedding/m24.jpg`
-      ],
-      title: "Wedding",
-      category: "Wedding",
-      description: "Capture the essence of love and commitment on your special day."
-    },
-    {
-      id: 3,
-      images: [
-        `${process.env.PUBLIC_URL}/media/reception/r4.jpg`,
-        `${process.env.PUBLIC_URL}/media/reception/r5.jpg`,
-        `${process.env.PUBLIC_URL}/media/reception/r6.jpg`
-      ],
-      title: "Reception",
-      category: "Wedding",
-      description: "A glamorous evening celebrating the union with friends and family."
-    },
-    {
-      id: 4,
-      images: [
-        `${process.env.PUBLIC_URL}/media/haldi/h6.jpg`,
-        `${process.env.PUBLIC_URL}/media/haldi/h7.jpg`,
-        `${process.env.PUBLIC_URL}/media/haldi/h17.jpg`
-      ],
-      title: "Haldi Ceremony",
-      category: "Wedding",
-      description: "Relive the vibrant traditions and joyful moments of the Haldi ritual."
-    },
-    {
-      id: 5,
-      images: [
-        `${process.env.PUBLIC_URL}/media/sangeeth/s12.jpg`,
-        `${process.env.PUBLIC_URL}/media/sangeeth/s24.jpg`,
-        `${process.env.PUBLIC_URL}/media/sangeeth/s25.jpg`
-      ],
-      title: "Sangeeth Night",
-      category: "Wedding",
-      description: "Dance, music, and joyous celebrations captured beautifully."
-    },
-    {
-      id: 17,
-      images: [
-        `${process.env.PUBLIC_URL}/media/engagement/e1.jpg`,
-        `${process.env.PUBLIC_URL}/media/engagement/e2.jpg`,
-        `${process.env.PUBLIC_URL}/media/engagement/e5.jpg`
-      ],
-      title: "Engagement",
-      category: "Wedding",
-      description: "Mark the beginning of your forever love story with cherished engagement moments."
-    },
-    {
-      id: 6,
-      images: [
-        `${process.env.PUBLIC_URL}/media/pre_birthday/pb11.jpg`,
-        `${process.env.PUBLIC_URL}/media/pre_birthday/pb12.jpg`,
-        `${process.env.PUBLIC_URL}/media/pre_birthday/pb13.jpg`
-      ],
-      title: "Pre-Birthday",
-      category: "Birthday",
-      description: "Anticipate the big day with heartwarming pre-birthday celebrations."
-    },
-    {
-      id: 7,
-      images: [
-        `${process.env.PUBLIC_URL}/media/birthday/b5.jpg`,
-        `${process.env.PUBLIC_URL}/media/birthday/b6.jpg`,
-        `${process.env.PUBLIC_URL}/media/birthday/b1.jpg`,
-      ],
-      title: "Birthday",
-      category: "Birthday",
-      description: "Cherish the joy and fun of your special day with vibrant memories."
-    },
-    {
-      id: 8,
-      images: [
-        `${process.env.PUBLIC_URL}/media/event/e1.jpg`,
-        `${process.env.PUBLIC_URL}/media/event/e2.jpg`,
-        `${process.env.PUBLIC_URL}/media/event/e3.jpg`
-      ],
-      title: "Event Photography",
-      category: "Corporate",
-      description: "Document your professional events with attention to every detail."
-    },
-    {
-      id: 9,
-      images: [
-        `${process.env.PUBLIC_URL}/media/government/g4.jpg`,
-        `${process.env.PUBLIC_URL}/media/government/g5.jpg`,
-        `${process.env.PUBLIC_URL}/media/government/g6.jpg`
-      ],
-      title: "Government Projects",
-      category: "Corporate",
-      description: "Highlight impactful initiatives with compelling visuals."
-    },
-    {
-      id: 11,
-      images: [
-        `${process.env.PUBLIC_URL}/media/portfolio/p2.jpg`,
-        `${process.env.PUBLIC_URL}/media/portfolio/p1.jpg`,
-        `${process.env.PUBLIC_URL}/media/portfolio/p5.jpg`,
-      ],
-      title: "Portfolio Shoots",
-      category: "Corporate",
-      description: "Create a portfolio that reflects your unique style and expertise."
-    },
-    {
-      id: 12,
-      images: [
-        `${process.env.PUBLIC_URL}/media/marketMedia/mm1.jpg`,
-        `${process.env.PUBLIC_URL}/media/marketMedia/mm2.jpg`,
-        `${process.env.PUBLIC_URL}/media/marketMedia/mm3.jpg`
-      ],
-      title: "Marketing & Media",
-      category: "Corporate",
-      description: "Boost your brand’s presence with creative marketing visuals."
-    },
-    {
-      id: 13,
-      images: [
-        `${process.env.PUBLIC_URL}/media/realestate/r1.jpg`,
-        `${process.env.PUBLIC_URL}/media/realestate/r2.jpg`,
-        `${process.env.PUBLIC_URL}/media/realestate/r3.jpg`
-      ],
-      title: "Real Estate",
-      category: "Corporate",
-      description: "Showcase properties with stunning visuals that highlight their best features."
-    },
-    {
-      id: 14,
-      images: [
-        `${process.env.PUBLIC_URL}/media/maternity/b3.jpg`,
-        `${process.env.PUBLIC_URL}/media/maternity/b3.jpg`,
-        `${process.env.PUBLIC_URL}/media/maternity/b3.jpg`
-      ],
-      title: "Maternity Shoot",
-      category: "Special",
-      description: "Capture the beauty and emotion of your journey to parenthood."
-    },
-    {
-      id: 15,
-      images: [
-        `${process.env.PUBLIC_URL}/media/cradle/c4.jpg`,
-        `${process.env.PUBLIC_URL}/media/cradle/c5.jpg`,
-        `${process.env.PUBLIC_URL}/media/cradle/c6.jpg`
-      ],
-      title: "Cradle Shoot",
-      category: "Special",
-      description: "Celebrate the arrival of your little one with precious moments."
-    },
-    {
-      id: 16,
-      images: [
-        `${process.env.PUBLIC_URL}/media/drone/d19.jpg`,
-        `${process.env.PUBLIC_URL}/media/drone/d20.jpg`,
-        `${process.env.PUBLIC_URL}/media/drone/d21.jpg`
-      ],
-      title: "Drone Shoot",
-      category: "Special",
-      description: "Experience breathtaking aerial perspectives with cutting-edge drone photography."
-    }
-  ];
+    const cards = [
+      {
+        id: 1,
+        images: [
+          `${process.env.PUBLIC_URL}/media/pre_wedding/pw1.jpg`,
+          `${process.env.PUBLIC_URL}/media/pre_wedding/pw2.jpg`,
+          `${process.env.PUBLIC_URL}/media/pre_wedding/pw3.jpg`
+        ],
+        title: "Pre-Wedding",
+        category: "Wedding",
+        description: "Celebrate the journey of love before the big day with enchanting pre-wedding moments."
+      },
+      {
+        id: 2,
+        images: [
+          `${process.env.PUBLIC_URL}/media/wedding/m22.jpg`,
+          `${process.env.PUBLIC_URL}/media/wedding/m23.jpg`,
+          `${process.env.PUBLIC_URL}/media/wedding/m24.jpg`
+        ],
+        title: "Wedding",
+        category: "Wedding",
+        description: "Capture the essence of love and commitment on your special day."
+      },
+      {
+        id: 3,
+        images: [
+          `${process.env.PUBLIC_URL}/media/reception/r4.jpg`,
+          `${process.env.PUBLIC_URL}/media/reception/r5.jpg`,
+          `${process.env.PUBLIC_URL}/media/reception/r6.jpg`
+        ],
+        title: "Reception",
+        category: "Wedding",
+        description: "A glamorous evening celebrating the union with friends and family."
+      },
+      {
+        id: 4,
+        images: [
+          `${process.env.PUBLIC_URL}/media/haldi/h6.jpg`,
+          `${process.env.PUBLIC_URL}/media/haldi/h7.jpg`,
+          `${process.env.PUBLIC_URL}/media/haldi/h17.jpg`
+        ],
+        title: "Haldi Ceremony",
+        category: "Wedding",
+        description: "Relive the vibrant traditions and joyful moments of the Haldi ritual."
+      },
+      {
+        id: 5,
+        images: [
+          `${process.env.PUBLIC_URL}/media/sangeeth/s12.jpg`,
+          `${process.env.PUBLIC_URL}/media/sangeeth/s24.jpg`,
+          `${process.env.PUBLIC_URL}/media/sangeeth/s25.jpg`
+        ],
+        title: "Sangeeth Night",
+        category: "Wedding",
+        description: "Dance, music, and joyous celebrations captured beautifully."
+      },
+      {
+        id: 17,
+        images: [
+          `${process.env.PUBLIC_URL}/media/engagement/e1.jpg`,
+          `${process.env.PUBLIC_URL}/media/engagement/e2.jpg`,
+          `${process.env.PUBLIC_URL}/media/engagement/e5.jpg`
+        ],
+        title: "Engagement",
+        category: "Wedding",
+        description: "Mark the beginning of your forever love story with cherished engagement moments."
+      },
+      {
+        id: 6,
+        images: [
+          `${process.env.PUBLIC_URL}/media/pre_birthday/pb11.jpg`,
+          `${process.env.PUBLIC_URL}/media/pre_birthday/pb12.jpg`,
+          `${process.env.PUBLIC_URL}/media/pre_birthday/pb13.jpg`
+        ],
+        title: "Pre-Birthday",
+        category: "Birthday",
+        description: "Anticipate the big day with heartwarming pre-birthday celebrations."
+      },
+      {
+        id: 7,
+        images: [
+          `${process.env.PUBLIC_URL}/media/birthday/b5.jpg`,
+          `${process.env.PUBLIC_URL}/media/birthday/b6.jpg`,
+          `${process.env.PUBLIC_URL}/media/birthday/b1.jpg`,
+        ],
+        title: "Birthday",
+        category: "Birthday",
+        description: "Cherish the joy and fun of your special day with vibrant memories."
+      },
+      {
+        id: 8,
+        images: [
+          `${process.env.PUBLIC_URL}/media/event/e1.jpg`,
+          `${process.env.PUBLIC_URL}/media/event/e2.jpg`,
+          `${process.env.PUBLIC_URL}/media/event/e3.jpg`
+        ],
+        title: "Event Photography",
+        category: "Corporate",
+        description: "Document your professional events with attention to every detail."
+      },
+      {
+        id: 9,
+        images: [
+          `${process.env.PUBLIC_URL}/media/government/g4.jpg`,
+          `${process.env.PUBLIC_URL}/media/government/g5.jpg`,
+          `${process.env.PUBLIC_URL}/media/government/g6.jpg`
+        ],
+        title: "Government Projects",
+        category: "Corporate",
+        description: "Highlight impactful initiatives with compelling visuals."
+      },
+      {
+        id: 11,
+        images: [
+          `${process.env.PUBLIC_URL}/media/portfolio/p2.jpg`,
+          `${process.env.PUBLIC_URL}/media/portfolio/p1.jpg`,
+          `${process.env.PUBLIC_URL}/media/portfolio/p5.jpg`,
+        ],
+        title: "Portfolio Shoots",
+        category: "Corporate",
+        description: "Create a portfolio that reflects your unique style and expertise."
+      },
+      {
+        id: 12,
+        images: [
+          `${process.env.PUBLIC_URL}/media/marketMedia/mm1.jpg`,
+          `${process.env.PUBLIC_URL}/media/marketMedia/mm2.jpg`,
+          `${process.env.PUBLIC_URL}/media/marketMedia/mm3.jpg`
+        ],
+        title: "Marketing & Media",
+        category: "Corporate",
+        description: "Boost your brand’s presence with creative marketing visuals."
+      },
+      {
+        id: 13,
+        images: [
+          `${process.env.PUBLIC_URL}/media/realestate/r1.jpg`,
+          `${process.env.PUBLIC_URL}/media/realestate/r2.jpg`,
+          `${process.env.PUBLIC_URL}/media/realestate/r3.jpg`
+        ],
+        title: "Real Estate",
+        category: "Corporate",
+        description: "Showcase properties with stunning visuals that highlight their best features."
+      },
+      {
+        id: 14,
+        images: [
+          `${process.env.PUBLIC_URL}/media/maternity/b3.jpg`,
+          `${process.env.PUBLIC_URL}/media/maternity/b3.jpg`,
+          `${process.env.PUBLIC_URL}/media/maternity/b3.jpg`
+        ],
+        title: "Maternity Shoot",
+        category: "Special",
+        description: "Capture the beauty and emotion of your journey to parenthood."
+      },
+      {
+        id: 15,
+        images: [
+          `${process.env.PUBLIC_URL}/media/cradle/c4.jpg`,
+          `${process.env.PUBLIC_URL}/media/cradle/c5.jpg`,
+          `${process.env.PUBLIC_URL}/media/cradle/c6.jpg`
+        ],
+        title: "Cradle Shoot",
+        category: "Special",
+        description: "Celebrate the arrival of your little one with precious moments."
+      },
+      {
+        id: 16,
+        images: [
+          `${process.env.PUBLIC_URL}/media/drone/d19.jpg`,
+          `${process.env.PUBLIC_URL}/media/drone/d20.jpg`,
+          `${process.env.PUBLIC_URL}/media/drone/d21.jpg`
+        ],
+        title: "Drone Shoot",
+        category: "Special",
+        description: "Experience breathtaking aerial perspectives with cutting-edge drone photography."
+      }
+    ];
 
-  
-  const [filteredCategory, setFilteredCategory] = useState("All");
+    
+    const [filteredCategory, setFilteredCategory] = useState("All");
 
-  const handleCardClick = (id) => {
-    navigate(`/gallery/${id}`);
+    const handleCardClick = (id) => {
+      navigate(`/gallery/${id}`);
+    };
+
+    const filterCards = () => {
+      if (filteredCategory === "All") return cards;
+      return cards.filter((card) => card.category === filteredCategory);
+    };
+
+    return (
+      <div className="p-5 bg-[#F9FDFE]">
+        <h2 className="text-3xl font-bold text-center mb-6">Explore Events</h2>
+
+        {/* Filter Buttons */}
+        <div className="flex flex-wrap justify-center mb-6 space-x-4 space-y-4 sm:space-y-0">
+          {["All", "Wedding", "Corporate", "Birthday", "Special"].map((category) => (
+            <button
+              key={category}
+              onClick={() => setFilteredCategory(category)}
+              className={`px-4 py-2 rounded-lg font-medium ${filteredCategory === category ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"}`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        {/* Card List */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4">
+          {filterCards().map((card) => (
+            <CardWithLoader key={card.id} card={card} onCardClick={handleCardClick} />
+          ))}
+        </div>
+      </div>
+    );
   };
 
-  const filterCards = () => {
-    if (filteredCategory === "All") return cards;
-    return cards.filter((card) => card.category === filteredCategory);
-  };
-
-  return (
-    <div className="p-5 bg-[#F9FDFE]">
-      <h2 className="text-3xl font-bold text-center mb-6">Explore Events</h2>
-
-      {/* Filter Buttons */}
-      <div className="flex flex-wrap justify-center mb-6 space-x-4 space-y-4 sm:space-y-0">
-        {["All", "Wedding", "Corporate", "Birthday", "Special"].map((category) => (
-          <button
-            key={category}
-            onClick={() => setFilteredCategory(category)}
-            className={`px-4 py-2 rounded-lg font-medium ${filteredCategory === category ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-700 hover:bg-gray-300"}`}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-
-      {/* Card List */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-4">
-        {filterCards().map((card) => (
-          <CardWithLoader key={card.id} card={card} onCardClick={handleCardClick} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default CardList;
+  export default CardList;
