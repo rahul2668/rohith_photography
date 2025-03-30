@@ -6,6 +6,7 @@ import AboutUs from './About';
 import DeveloperCard from '../components/DeveloperCard';
 import Inquiry from '../components/Inquiry';
 import Videos from '../components/Videos';
+import Footer from '../components/Footer';
 
 const Home = () => {
   return (
@@ -40,6 +41,7 @@ const Home = () => {
       <AboutUs />
       <Inquiry />
       <DeveloperCard />
+      <Footer />
       
       
       
