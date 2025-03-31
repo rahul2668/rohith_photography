@@ -177,7 +177,7 @@ const Videos = () => {
       id: 7,
       title: "Wedding Cinematic",
       description: "Cinematic Video | Nikil & Deepya",
-      imageUrl: `${process.env.PUBLIC_URL}/media/wedding/m38.jpg`, // Replace with your actual image path
+      imageUrl: `${process.env.PUBLIC_URL}/media/wedding/m42.jpg`, // Replace with your actual image path
       youtubeLink: "https://www.youtube.com/embed/aeBIvVtEkg8?si=7r8161CvynBWgVyn",
     },
   ];
