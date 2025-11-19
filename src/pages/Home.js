@@ -6,6 +6,7 @@ import AboutUs from './About';
 import DeveloperCard from '../components/DeveloperCard';
 import Inquiry from '../components/Inquiry';
 import Videos from '../components/Videos';
+// import NetflixScroller from '../components/test';
 
 const Home = () => {
   return (
@@ -27,11 +28,14 @@ const Home = () => {
         Welcome to our website, where we turn life's most precious moments into timeless memories. Specializing in wedding, portrait, and event photography, we believe every story deserves to be told through stunning visuals. Let us help you freeze time and cherish your memories forever...
         </p>
       </div>
+      <div className="py-12 w-full">
+      {/* <NetflixScroller /> */}
+      </div>
       {/* Card List Section */}
       <div className="py-16 bg-gray-100">
         <CardList />
-      </div>      
-      
+      </div>
+
       <Description />
       <Videos />
       <div className="py-16 bg-gray-100">
@@ -40,9 +44,9 @@ const Home = () => {
       <AboutUs />
       <Inquiry />
       <DeveloperCard />
-      
-      
-      
+
+
+
     </div>
   );
 };

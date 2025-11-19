@@ -1,65 +1,182 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { Heart, Building, Cake, Star } from 'lucide-react';
+import OptimizedImage from './OptimizedImage';
 
 const CardList = () => {
   const navigate = useNavigate();
 
-  // const cards = [
-  //   // Wedding
-  //   { id: 1, image: `${process.env.PUBLIC_URL}/media/pre_wedding/pw1.jpg`, title: "Pre-Wedding", category: "Wedding", description: "Celebration of a Life of love begins with these magical moments." },
-  //   { id: 2, image: `${process.env.PUBLIC_URL}/media/wedding/m22.jpg`, title: "Wedding", category: "Wedding", description: "Celebrate the union with grand and memorable moments of joy." },
-  //   { id: 3, image: `${process.env.PUBLIC_URL}/media/reception/r4.jpg`, title: "Reception", category: "Wedding", description: "An evening filled with laughter, music, and cherished memories." },
-  //   { id: 4, image: `${process.env.PUBLIC_URL}/media/haldi/h6.jpg`, title: "Haldi Ceremony", category: "Wedding", description: "Capture the vibrant hues and joyous moments of Haldi." },
-  //   { id: 5, image: `${process.env.PUBLIC_URL}/media/sangeeth/s12.jpg`, title: "Sangeeth Night", category: "Wedding", description: "Relive the music, dance, and energy of Sangeeth Night." },
-  //   { id: 17, image: `${process.env.PUBLIC_URL}/media/engagement/e1.jpg`, title: "Engagement", category: "Wedding", description: "Relive the music, dance, and energy of Engagement Shoot." },
-
-  //   //Birthday
-  //   { id: 6, image: `${process.env.PUBLIC_URL}/media/pre_birthday/pb11.jpg`, title: "Pre-Birthday", category: "Birthday", description: "Counting down the days to a celebration of life, love, and laughter." },
-  //   { id: 7, image: `${process.env.PUBLIC_URL}/media/birthday/b5.jpg`, title: "Birthday", category: "Birthday", description: "Two souls, one journey, and a lifetime of love awaits." },
-    
-  //   //Corporate
-    
-  //   { id: 8, image: `${process.env.PUBLIC_URL}/media/event/e1.jpg`, title: "Event Photography", category: "Corporate", description: "Preserving unforgettable moments with elegance and artistry." },
-  //   { id: 9, image: `${process.env.PUBLIC_URL}/media/government/g4.jpg`, title: "Government Projects", category: "Corporate", description: "Showcase your brand’s vision with striking visuals." },
-  //   { id: 10, image: `${process.env.PUBLIC_URL}/media/default.jpg`, title: "Corporate Shoots", category: "Corporate", description: "Enhance your corporate identity with professional photos." },
-  //   { id: 11, image: `${process.env.PUBLIC_URL}/media/portfolio/p2.jpg`, title: "Portfolio Shoots", category: "Corporate", description: "Create a stunning portfolio highlighting your unique talents." },
-  //   { id: 12, image: `${process.env.PUBLIC_URL}/media/marketMedia/mm1.jpg`, title: "Marketing & Media", category: "Corporate", description: "Compelling visuals to elevate your marketing campaigns." },
-  //   { id: 13, image: `${process.env.PUBLIC_URL}/media/realestate/r1.jpg`, title: "Real Estate", category: "Corporate", description: "Bring properties to life with high-quality visuals." },
-    
-  //   // Special
-  //   { id: 14, image: `${process.env.PUBLIC_URL}/media/maternity/b3.jpg`, title: "Maternity Shoot", category: "Special", description: "Capture the joy of parenthood with precious moments." },
-  //   { id: 15, image: `${process.env.PUBLIC_URL}/media/cradle/c6.jpg`, title: "Cradle Shoot", category: "Special", description: "Capture the joy of parenthood with precious moments." },
-  //   { id: 16, image: `${process.env.PUBLIC_URL}/media/drone/d19.jpg`, title: "Drone Shoot", category: "Special", description: "Breathtaking aerial views for unique perspectives." },
-    
-  // ];
-
   const cards = [
     // Wedding
-    { id: 1, image: `${process.env.PUBLIC_URL}/media/pre_wedding/pw1.jpg`, title: "Pre-Wedding", category: "Wedding", description: "Celebrate the journey of love before the big day with enchanting pre-wedding moments." },
-    { id: 2, image: `${process.env.PUBLIC_URL}/media/wedding/m22.jpg`, title: "Wedding", category: "Wedding", description: "Capture the essence of love and commitment on your special day." },
-    { id: 3, image: `${process.env.PUBLIC_URL}/media/reception/r4.jpg`, title: "Reception", category: "Wedding", description: "A glamorous evening celebrating the union with friends and family." },
-    { id: 4, image: `${process.env.PUBLIC_URL}/media/haldi/h6.jpg`, title: "Haldi Ceremony", category: "Wedding", description: "Relive the vibrant traditions and joyful moments of the Haldi ritual." },
-    { id: 5, image: `${process.env.PUBLIC_URL}/media/sangeeth/s12.jpg`, title: "Sangeeth Night", category: "Wedding", description: "Dance, music, and joyous celebrations captured beautifully." },
-    { id: 17, image: `${process.env.PUBLIC_URL}/media/engagement/e1.jpg`, title: "Engagement", category: "Wedding", description: "Mark the beginning of your forever love story with cherished engagement moments." },
-  
+    {
+      id: 1,
+      folder: 'pre_wedding',
+      filename: 'pw1.jpg',
+      title: "Pre-Wedding",
+      category: "Wedding",
+      description: "Celebrate the journey of love before the big day with enchanting pre-wedding moments.",
+      icon: Heart,
+      color: "from-pink-500 to-rose-500"
+    },
+    {
+      id: 2,
+      folder: 'wedding',
+      filename: 'm22.jpg',
+      title: "Wedding",
+      category: "Wedding",
+      description: "Capture the essence of love and commitment on your special day.",
+      icon: Heart,
+      color: "from-pink-500 to-rose-500"
+    },
+    {
+      id: 3,
+      folder: 'reception',
+      filename: 'r4.jpg',
+      title: "Reception",
+      category: "Wedding",
+      description: "A glamorous evening celebrating the union with friends and family.",
+      icon: Heart,
+      color: "from-pink-500 to-rose-500"
+    },
+    {
+      id: 4,
+      folder: 'haldi',
+      filename: 'h6.jpg',
+      title: "Haldi Ceremony",
+      category: "Wedding",
+      description: "Relive the vibrant traditions and joyful moments of the Haldi ritual.",
+      icon: Heart,
+      color: "from-pink-500 to-rose-500"
+    },
+    {
+      id: 5,
+      folder: 'sangeeth',
+      filename: 's12.jpg',
+      title: "Sangeeth Night",
+      category: "Wedding",
+      description: "Dance, music, and joyous celebrations captured beautifully.",
+      icon: Heart,
+      color: "from-pink-500 to-rose-500"
+    },
+    {
+      id: 17,
+      folder: 'engagement',
+      filename: 'e1.jpg',
+      title: "Engagement",
+      category: "Wedding",
+      description: "Mark the beginning of your forever love story with cherished engagement moments.",
+      icon: Heart,
+      color: "from-pink-500 to-rose-500"
+    },
+
     // Birthday
-    { id: 6, image: `${process.env.PUBLIC_URL}/media/pre_birthday/pb11.jpg`, title: "Pre-Birthday", category: "Birthday", description: "Anticipate the big day with heartwarming pre-birthday celebrations." },
-    { id: 7, image: `${process.env.PUBLIC_URL}/media/birthday/b5.jpg`, title: "Birthday", category: "Birthday", description: "Cherish the joy and fun of your special day with vibrant memories." },
-  
+    {
+      id: 6,
+      folder: 'pre_birthday',
+      filename: 'pb11.jpg',
+      title: "Pre-Birthday",
+      category: "Birthday",
+      description: "Anticipate the big day with heartwarming pre-birthday celebrations.",
+      icon: Cake,
+      color: "from-yellow-500 to-orange-500"
+    },
+    {
+      id: 7,
+      folder: 'birthday',
+      filename: 'b5.jpg',
+      title: "Birthday",
+      category: "Birthday",
+      description: "Cherish the joy and fun of your special day with vibrant memories.",
+      icon: Cake,
+      color: "from-yellow-500 to-orange-500"
+    },
+
     // Corporate
-    { id: 8, image: `${process.env.PUBLIC_URL}/media/event/e1.jpg`, title: "Event Photography", category: "Corporate", description: "Document your professional events with attention to every detail." },
-    { id: 9, image: `${process.env.PUBLIC_URL}/media/government/g4.jpg`, title: "Government Projects", category: "Corporate", description: "Highlight impactful initiatives with compelling visuals." },
-    // { id: 10, image: `${process.env.PUBLIC_URL}/media/default.jpg`, title: "Corporate Shoots", category: "Corporate", description: "Showcase professionalism and success with stunning corporate imagery." },
-    { id: 11, image: `${process.env.PUBLIC_URL}/media/portfolio/p2.jpg`, title: "Portfolio Shoots", category: "Corporate", description: "Create a portfolio that reflects your unique style and expertise." },
-    { id: 12, image: `${process.env.PUBLIC_URL}/media/marketMedia/mm1.jpg`, title: "Marketing & Media", category: "Corporate", description: "Boost your brand’s presence with creative marketing visuals." },
-    { id: 13, image: `${process.env.PUBLIC_URL}/media/realestate/r1.jpg`, title: "Real Estate", category: "Corporate", description: "Showcase properties with stunning visuals that highlight their best features." },
-  
+    {
+      id: 8,
+      folder: 'event',
+      filename: 'e1.jpg',
+      title: "Event Photography",
+      category: "Corporate",
+      description: "Document your professional events with attention to every detail.",
+      icon: Building,
+      color: "from-blue-500 to-indigo-500"
+    },
+    {
+      id: 9,
+      folder: 'government',
+      filename: 'g4.jpg',
+      title: "Government Projects",
+      category: "Corporate",
+      description: "Highlight impactful initiatives with compelling visuals.",
+      icon: Building,
+      color: "from-blue-500 to-indigo-500"
+    },
+    {
+      id: 11,
+      folder: 'portfolio',
+      filename: 'p2.jpg',
+      title: "Portfolio Shoots",
+      category: "Corporate",
+      description: "Create a portfolio that reflects your unique style and expertise.",
+      icon: Building,
+      color: "from-blue-500 to-indigo-500"
+    },
+    {
+      id: 12,
+      folder: 'marketMedia',
+      filename: 'mm1.jpg',
+      title: "Marketing & Media",
+      category: "Corporate",
+      description: "Boost your brand's presence with creative marketing visuals.",
+      icon: Building,
+      color: "from-blue-500 to-indigo-500"
+    },
+    {
+      id: 13,
+      folder: 'realestate',
+      filename: 'r1.jpg',
+      title: "Real Estate",
+      category: "Corporate",
+      description: "Showcase properties with stunning visuals that highlight their best features.",
+      icon: Building,
+      color: "from-blue-500 to-indigo-500"
+    },
+
     // Special
-    { id: 14, image: `${process.env.PUBLIC_URL}/media/maternity/b3.jpg`, title: "Maternity Shoot", category: "Special", description: "Capture the beauty and emotion of your journey to parenthood." },
-    { id: 15, image: `${process.env.PUBLIC_URL}/media/cradle/c6.jpg`, title: "Cradle Shoot", category: "Special", description: "Celebrate the arrival of your little one with precious moments." },
-    { id: 16, image: `${process.env.PUBLIC_URL}/media/drone/d19.jpg`, title: "Drone Shoot", category: "Special", description: "Experience breathtaking aerial perspectives with cutting-edge drone photography." },
+    {
+      id: 14,
+      folder: 'maternity',
+      filename: 'b3.jpg',
+      title: "Maternity Shoot",
+      category: "Special",
+      description: "Capture the beauty and emotion of your journey to parenthood.",
+      icon: Star,
+      color: "from-purple-500 to-pink-500"
+    },
+    {
+      id: 15,
+      folder: 'cradle',
+      filename: 'c6.jpg',
+      title: "Cradle Shoot",
+      category: "Special",
+      description: "Celebrate the arrival of your little one with precious moments.",
+      icon: Star,
+      color: "from-purple-500 to-pink-500"
+    },
+    {
+      id: 16,
+      folder: 'drone',
+      filename: 'd19.jpg',
+      title: "Drone Shoot",
+      category: "Special",
+      description: "Experience breathtaking aerial perspectives with cutting-edge drone photography.",
+      icon: Star,
+      color: "from-purple-500 to-pink-500"
+    },
   ];
-  
+
   const [filteredCategory, setFilteredCategory] = useState("All");
 
   const handleCardClick = (id) => {
@@ -71,69 +188,111 @@ const CardList = () => {
     return cards.filter((card) => card.category === filteredCategory);
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   return (
     <div className="p-5">
-      <h2 className="text-3xl font-bold text-center mb-6">Explore Events</h2>
+      {/* Section Header */}
+      <div className="text-center mb-8">
+        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          Explore Our Services
+        </h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          Discover our comprehensive range of photography services, each designed to capture your unique moments with artistic excellence.
+        </p>
+      </div>
 
       {/* Filter Buttons */}
-      <div className="flex flex-wrap justify-center mb-6 space-x-4 space-y-4 sm:space-y-0">
-        {/* flex justify-center mb-6 space-x-4"> */}
+      <div className="flex flex-wrap justify-center mb-12 space-x-4 space-y-4 sm:space-y-0">
         {["All", "Wedding", "Corporate", "Birthday", "Special"].map((category) => (
-          <button
+          <motion.button
             key={category}
             onClick={() => setFilteredCategory(category)}
-            className={`px-4 py-2 rounded-lg font-medium ${
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
               filteredCategory === category
-                ? "bg-blue-600 text-white"
-                : "bg-gray-200 text-gray-700 hover:bg-gray-300"
+                ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
+                : "bg-white text-gray-700 hover:bg-gray-100 shadow-md hover:shadow-lg"
             }`}
           >
             {category}
-          </button>
+          </motion.button>
         ))}
       </div>
 
-      {/* Card List */}
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"> */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-6">
-        {filterCards().map((card) => (
-          // <div
-          //   key={card.id}
-          //   onClick={() => handleCardClick(card.id)}
-          //   className="cursor-pointer bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow"
-          //   style={{ height: "400px" }}
-          // >
-          //   <img
-          //     src={card.image}
-          //     alt={card.title}
-          //     // className="w-full h-48 sm:h-56 md:h-48 object-cover"
-          //     className="w-full h-64 object-cover"
-          //   />
-          //   <div className="p-4">
-          //     <h3 className="text-lg font-semibold">{card.title}</h3>
-          //     <p className="text-gray-600">{card.description}</p>
-          //   </div>
-          // </div>
-          <div
-  key={card.id}
-  onClick={() => handleCardClick(card.id)}
-  className="cursor-pointer bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col"
-  style={{ height: "400px" }} // Set the card height
->
-  <img
-    src={card.image}
-    alt={card.title}
-    className="w-full flex-grow object-cover" // Flex-grow ensures the image takes up available space
-  />
-  <div className="p-4">
-    {/* <h3 className="text-lg font-semibold">{card.title}</h3>
-    <p className="text-sm text-gray-600">{card.description}</p> */}
-    <h3 className="text-base md:text-lg lg:text-xl font-semibold">{card.title}</h3> {/* Responsive title */}
-    <p className="text-sm md:text-base lg:text-md text-gray-600">{card.description}</p> {/* Responsive description */}
-  </div>
-</div>
-        ))}
-      </div>
+      {/* Card Grid */}
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {filterCards().map((card) => {
+          const IconComponent = card.icon;
+          return (
+            <motion.div
+              key={card.id}
+              variants={cardVariants}
+              whileHover={{
+                y: -10,
+                transition: { duration: 0.3 }
+              }}
+              className="group cursor-pointer"
+              onClick={() => handleCardClick(card.id)}
+            >
+              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform group-hover:scale-105">
+                {/* Image Container */}
+                <div className="relative overflow-hidden h-64">
+                  <OptimizedImage
+                    folder={card.folder}
+                    filename={card.filename}
+                    alt={card.title}
+                    size="medium"
+                    className="w-full h-full transition-transform duration-500 group-hover:scale-105"
+                  />
+                  {/* Category Badge */}
+                  <div className="absolute top-4 left-4 z-10">
+                    <div className={`px-3 py-1 rounded-full text-xs font-semibold text-white bg-gradient-to-r ${card.color}`}>
+                      {card.category}
+                    </div>
+                  </div>
+                  {/* Icon Overlay */}
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-10">
+                    <IconComponent className="w-12 h-12 text-white" />
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                    {card.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {card.description}
+                  </p>
+
+                  {/* Hover Effect Line */}
+                  <div className="mt-4 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                </div>
+              </div>
+            </motion.div>
+          );
+        })}
+      </motion.div>
     </div>
   );
 };
