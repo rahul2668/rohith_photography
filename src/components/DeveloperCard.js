@@ -8,8 +8,7 @@ const DeveloperCard = () => {
       name: "Rahul Ramagiri",
       role: "Full Stack Developer",
       description:
-      "Website Developed by Rahul Ramagiri This website was developed by Rahul Ramagiri, a passionate Website Developer focused on creating seamless, engaging online experiences. Using modern technologies, I ensure the site is both visually appealing and performs at its best.",
-        // "Passionate Full Stack Developer with expertise in building scalable web applications, from front-end interfaces to back-end solutions, ensuring seamless user experiences and efficient performance.",
+        "Passionate Full Stack Developer with expertise in building scalable web applications, from front-end interfaces to back-end solutions, ensuring seamless user experiences and efficient performance.",
       image: `${process.env.PUBLIC_URL}/media/rahul.jpg`, // Replace with the actual image path
       socialLinks: {
         linkedin: "https://www.linkedin.com/in/rahul-ramagiri-782a85189",
@@ -22,7 +21,7 @@ const DeveloperCard = () => {
     <div
       className="min-h-screen flex justify-center items-center bg-cover bg-center px-4 sm:px-6 lg:px-8"
       style={{
-        backgroundImage: `url('${process.env.PUBLIC_URL}/media/test.avif')`, // Replace with the background image path
+        backgroundImage: `url('${process.env.PUBLIC_URL}/media/im4.avif')`, // Replace with the background image path
         backgroundSize: "cover",
       }}
     >
