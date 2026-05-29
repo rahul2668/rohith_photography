@@ -35,7 +35,7 @@ const Navbar = () => {
           <Link to="/" className="flex items-center space-x-3 group">
             <div className="relative">
               <img
-                src={`${process.env.PUBLIC_URL}/media/logo2.png`}
+                src={`${process.env.PUBLIC_URL}/media/logo.jpg`}
                 alt="Logo"
                 className="h-10 w-12 object-cover transition-transform group-hover:scale-110"
               />
